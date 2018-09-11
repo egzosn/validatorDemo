@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--异常拦截器-->
+    <bean class="com.egzosn.validator.validator.handler.ExceptionInterceptor"></bean>
+    <!--异常信息配置-->
+    <bean id="errorCodeProperties" class="com.egzosn.validator.error.ErrorCodeProperties">
+        <property name="seq" value="10"/>
+        <property name="name" value="ires_irontower"/>
+        <property name="success">
+            <map>
+                <entry key="0" value="操作成功"/>
+            </map>
+        </property>
+        <property name="errorCode">
+            <bean id="errorCode" class="com.egzosn.validator.error.ErrorCode">
+                <property name="common">
+                    <map>
+                        <entry key="66" value="操作过于频繁，请稍后重试。"/>
+                        <entry key="77" value="非法操作"/>
+                        <entry key="91" value="签名错误"/>
+                        <entry key="92" value="未进行授权请授权"/>
+                        <entry key="93" value="已授权暂未审核"/>
+                        <entry key="99" value="用户会话已过期需重新登录或未登录"/>
+                        <entry key="500" value="服务器异常"/>
+                        <entry key="1000" value="非法参数"/>
+                    </map>
+                </property>
+                <property name="custom">
+                    <map>
+                        <entry key="1002" value="QQ不能为空"/>
+                        <entry key="1003" value="QQ是否正确"/>
+                        <entry key="2001" value="接入号不存在"/>
+
+                    </map>
+
+                </property>
+
+            </bean>
+
+        </property>
+    </bean>
+
+</beans>

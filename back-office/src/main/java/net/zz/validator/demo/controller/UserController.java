@@ -1,7 +1,6 @@
 package net.zz.validator.demo.controller;
 
 import net.zz.validator.demo.entity.User;
-import net.zz.validator.web.SupportController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
