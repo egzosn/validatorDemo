@@ -1,8 +1,8 @@
 package net.zz.validator.demo.controller;
 
 import com.egzosn.validator.error.MsgCode;
+import com.egzosn.validator.validator.annotation.Validated;
 import com.egzosn.validator.validator.constraints.QQ;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
