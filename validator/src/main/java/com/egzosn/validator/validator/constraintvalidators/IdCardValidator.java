@@ -1,14 +1,18 @@
-package net.zz.validator.constraintvalidators;
+package com.egzosn.validator.validator.constraintvalidators;
 
-import net.zz.validator.constraints.IdCard;
-import net.zz.validator.plug.IdCardUtil;
+
+
+
+
+import com.egzosn.validator.validator.constraints.IdCard;
+import com.egzosn.validator.validator.plug.IdCardUtil;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.text.ParseException;
 
 /**
- * Created by ZaoSheng on 2015/7/2.
+ * Created by ZaoSheng on 2015/6/25.
  */
 public class IdCardValidator implements ConstraintValidator<IdCard, String> {
     @Override
@@ -18,16 +22,18 @@ public class IdCardValidator implements ConstraintValidator<IdCard, String> {
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        if (null == value || value.length() <= 0){
+        if (value == null || value.length() == 0) {
             return true;
         }
 
         try {
-            return "true".equals(IdCardUtil.IDCardValidate(value)) ? true :false;
+            if ("true".equals(IdCardUtil.IDCardValidate(value))) {
+                return true;
+            }
         } catch (ParseException e) {
             e.printStackTrace();
 
         }
-        return true;
+        return false;
     }
 }

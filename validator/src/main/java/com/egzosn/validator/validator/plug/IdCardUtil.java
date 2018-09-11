@@ -1,4 +1,4 @@
-package net.zz.validator.plug;
+package com.egzosn.validator.validator.plug;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,7 +19,7 @@ public class IdCardUtil {
 	 * @param IDStr
 	 *            身份证号
 	 * @return 有效：返回"" 无效：返回String信息
-	 * @throws java.text.ParseException
+	 * @throws ParseException
 	 */
 	public static String IDCardValidate(String IDStr) throws ParseException {
 		String errorInfo = "";// 记录错误信息
@@ -111,11 +111,7 @@ public class IdCardUtil {
 	private static boolean isNumeric(String str) {
 		Pattern pattern = Pattern.compile("[0-9]*");
 		Matcher isNum = pattern.matcher(str);
-		if (isNum.matches()) {
-			return true;
-		} else {
-			return false;
-		}
+        return isNum.matches();
 	}
 
 	/**

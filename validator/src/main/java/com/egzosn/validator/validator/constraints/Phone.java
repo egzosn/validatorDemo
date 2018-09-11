@@ -1,9 +1,11 @@
-package net.zz.validator.constraints;
+package com.egzosn.validator.validator.constraints;
 
-import net.zz.validator.constraintvalidators.PhoneValidator;
+
+import com.egzosn.validator.validator.constraintvalidators.PhoneValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.ReportAsSingleViolation;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -11,29 +13,25 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+
 /**
- * The annotated element must be <code>phone</code>.
- * Accepts any type.
- *
- * @author  ZaoSheng
- * @email cnzhengzs@gmail.com
- *
+ * Created by ZaoSheng on 2015/6/25.
  */
-@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
-@Retention(RUNTIME)
+
 @Documented
 @Constraint(validatedBy = PhoneValidator.class)
+@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Retention(RUNTIME)
+@ReportAsSingleViolation
 public @interface Phone {
-    String message() default "这不是一个合法的手机号码";
+    String message() default "phone 格式不正确";
 
     Class<?>[] groups() default { };
 
-    Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default { };
+
     /**
-     * Defines several <code>@Phone</code> annotations on the same element
-     * @see Phone
-     *
-     * @author ZaoSheng
+     * Defines several {@code @NotBlank} annotations on the same element.
      */
     @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
     @Retention(RUNTIME)
@@ -42,4 +40,3 @@ public @interface Phone {
         Phone[] value();
     }
 }
-
