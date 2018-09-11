@@ -26,26 +26,8 @@
 
 
 ```
-maven 配置
-```xml
-<dependency>
-  <groupId>net.zz</groupId>
-  <artifactId>validator</artifactId>
-  <version>1.0</version>
-</dependency>
-```
-对应的maven的依赖
-```xml
 
-        <!--这个东西不用的，因为net.zz.validator.web.SupportController的问题.-->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-            <type>jar</type>
-            <scope>compile</scope>
-        </dependency>
-```
+
 
 
 在mvc-servlet-context.xml里面加入一下支持
@@ -57,7 +39,7 @@ maven 配置
      <!--<aop:aspectj-autoproxy proxy-target-class="true" />-->
 
      <!--<bean class="net.zz.validator.ZZValidate"/>-->
-     <!--注册方法验证的后处理器-->
-     <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+    <!--注册方法验证的后处理器-->
+    <bean class="com.egzosn.validator.validator.handler.MethodValidationPostProcessor"/>
 
 ```
